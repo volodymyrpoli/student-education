@@ -7,11 +7,13 @@ import static org.hamcrest.Matchers.is;
 public class KnowledgeTest {
 
     private Knowledge knowledge_10_20;
+    private Knowledge knowledge_15_25;
     private Knowledge knowledge_0_0;
 
     @BeforeEach
     void setUp() {
         knowledge_10_20 = new Knowledge(10, 20);
+        knowledge_15_25 = new Knowledge(15, 25);
         knowledge_0_0 = new Knowledge();
     }
 
@@ -63,6 +65,14 @@ public class KnowledgeTest {
         knowledge_0_0.add(KnowledgeType.THEORETICAL, 20);
 
         assertThat(knowledge_0_0.getTheoretical(), is(20));
+    }
+
+    @Test
+    void add__whenAddOtherKnowledge__concatTwoKnowledge() {
+        knowledge_10_20.add(knowledge_15_25);
+
+        assertThat(knowledge_10_20.getPractical(), is(10 + 15));
+        assertThat(knowledge_10_20.getTheoretical(), is(20 + 25));
     }
 
 

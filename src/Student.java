@@ -1,8 +1,16 @@
+import java.time.LocalDate;
+
 public class Student {
     private Knowledge knowledge;
+    private LocalDate date;
+
+    Student(Knowledge knowledge, LocalDate dateForStudent) {
+        date = dateForStudent;
+        this.knowledge = knowledge;
+    }
 
     Student(Knowledge knowledge) {
-        this.knowledge = knowledge;
+        this(knowledge, LocalDate.now());
     }
 
     Student() {
@@ -23,5 +31,9 @@ public class Student {
                     (int) ((otherStudent.knowledge.getTheoretical() - this.knowledge.getTheoretical()) * 0.2)
             );
         }
+    }
+
+    LocalDate getDate() {
+        return date;
     }
 }
