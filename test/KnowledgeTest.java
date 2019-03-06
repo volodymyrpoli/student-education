@@ -29,8 +29,8 @@ public class KnowledgeTest {
 
     @Test
     void knowledge__whenGetKnowledge__getKnowledge() {
-        assertThat(knowledge_10_20.getKnowledge(KnowledgeType.PRACTICAL), is(10));
-        assertThat(knowledge_10_20.getKnowledge(KnowledgeType.THEORETICAL), is(20));
+        assertThat(knowledge_10_20.get(KnowledgeType.PRACTICAL), is(10));
+        assertThat(knowledge_10_20.get(KnowledgeType.THEORETICAL), is(20));
     }
 
     @Test
@@ -56,11 +56,11 @@ public class KnowledgeTest {
         assertThat(knowledge_0_0.getPractical(), is(0));
         assertThat(knowledge_0_0.getTheoretical(), is(0));
 
-        knowledge_0_0.addKnowledge(KnowledgeType.PRACTICAL, 15);
+        knowledge_0_0.add(KnowledgeType.PRACTICAL, 15);
 
         assertThat(knowledge_0_0.getPractical(), is(15));
 
-        knowledge_0_0.addKnowledge(KnowledgeType.THEORETICAL, 20);
+        knowledge_0_0.add(KnowledgeType.THEORETICAL, 20);
 
         assertThat(knowledge_0_0.getTheoretical(), is(20));
     }

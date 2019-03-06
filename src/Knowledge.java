@@ -19,7 +19,7 @@ public class Knowledge {
         theoretical += value;
     }
 
-    void addKnowledge(KnowledgeType type, int value) {
+    void add(KnowledgeType type, int value) {
         switch (type) {
             case PRACTICAL: practical += value; break;
             case THEORETICAL: theoretical += value; break;
@@ -35,7 +35,7 @@ public class Knowledge {
         return theoretical;
     }
 
-    int getKnowledge(KnowledgeType type) {
+    int get(KnowledgeType type) {
         switch (type) {
             case PRACTICAL: return practical;
             case THEORETICAL: return theoretical;
