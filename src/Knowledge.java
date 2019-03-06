@@ -27,6 +27,11 @@ public class Knowledge {
         }
     }
 
+    void add(Knowledge knowledge) {
+        practical += knowledge.practical;
+        theoretical += knowledge.theoretical;
+    }
+
     int getPractical() {
         return practical;
     }
