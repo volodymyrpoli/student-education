@@ -9,8 +9,9 @@ public class ActivityWithRegistration extends Activity {
         super(name, practical, theoretical, one, conditions);
     }
 
-    void enroll(Student student) {
+    ActivityWithRegistration enroll(Student student) {
         students.add(student);
+        return this;
     }
 
     @Override

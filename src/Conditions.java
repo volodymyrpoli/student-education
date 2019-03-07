@@ -9,11 +9,11 @@ public class Conditions {
     }
 
     public static Condition<Student> inPeriod(LocalDate from, LocalDate to) {
-        return student -> student.getDate().isAfter(from) && student.getDate().isBefore(to);
+        return student -> student.getDate().isAfter(from.minusDays(1)) && student.getDate().isBefore(to);
     }
 
     public static Condition<Student> inStudyYearsPeriod(int from, int to) {
-        return student -> student.getDate().isAfter(LocalDate.of(from, Month.SEPTEMBER, 1))
+        return student -> student.getDate().isAfter(LocalDate.of(from, Month.SEPTEMBER, 1).minusDays(1))
                 && student.getDate().isBefore(LocalDate.of(to, Month.JULY, 1));
     }
 
