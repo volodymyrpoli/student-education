@@ -5,21 +5,15 @@ import java.util.List;
 public class Activity {
     private String name;
     private Knowledge knowledge;
-    private List<Condition<Student>> conditions = new ArrayList<>();
-
-    Activity(String name, int practical, int theoretical) {
-        setup(name, practical, theoretical);
-    }
+    private List<Condition<Student>> conditions;
 
     @SafeVarargs
-    Activity(String name, int practical, int theoretical, Condition<Student> ...conditions) {
-        setup(name, practical, theoretical);
-        this.conditions = new ArrayList<>(Arrays.asList(conditions));
-    }
-
-    private void setup(String name, int practical, int theoretical) {
+    Activity(String name, int practical, int theoretical, Condition<Student> one, Condition<Student> ...conditions) {
         this.name = name;
         knowledge = new Knowledge(practical, theoretical);
+        this.conditions = new ArrayList<>();
+        this.conditions.add(one);
+        this.conditions.addAll(Arrays.asList(conditions));
     }
 
     String getName() {

@@ -36,4 +36,9 @@ public class Student {
     LocalDate getDate() {
         return date;
     }
+
+    LocalDate nextDay() {
+        date = date.plusDays(1);
+        return date;
+    }
 }

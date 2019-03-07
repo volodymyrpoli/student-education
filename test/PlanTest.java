@@ -15,7 +15,7 @@ public class PlanTest {
     @BeforeEach
     void setUp() {
         emptyPlan = new Plan();
-        meetup_Interlink_10_15 = new Activity("Interlink MEET:UP", 10, 20);
+        meetup_Interlink_10_15 = new Activity("Interlink MEET:UP", 10, 20, Conditions.everyDay());
     }
 
     @Test

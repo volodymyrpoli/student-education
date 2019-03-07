@@ -19,7 +19,7 @@ public class ActivityTest {
 
     @BeforeEach
     void setUp() {
-        meetup_Interlink_20_10 = new Activity("Interlink MEET:UP", 10, 20);
+        meetup_Interlink_20_10 = new Activity("Interlink MEET:UP", 10, 20, Conditions.everyDay());
         shortCourse_15_15 = new Activity(
                 "Short Course", 15, 15,
                 Conditions.inPeriod(LocalDate.now().minusDays(1), LocalDate.now().plusDays(10))
