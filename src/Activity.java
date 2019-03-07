@@ -34,4 +34,8 @@ public class Activity {
         return knowledge.getPractical();
     }
 
+    void addCondition(Condition<Student> condition) {
+        conditions.add(condition);
+    }
+
 }

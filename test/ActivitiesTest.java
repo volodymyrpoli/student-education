@@ -8,7 +8,6 @@ import java.time.Month;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-
 public class ActivitiesTest {
 
     private static Student student_0_0;

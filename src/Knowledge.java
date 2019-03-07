@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Knowledge {
 
     public static final double EDUCABILITY_MAX_VALUE = 1.;
@@ -72,4 +74,17 @@ public class Knowledge {
         return new Knowledge(0, 0);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Knowledge knowledge = (Knowledge) o;
+        return Double.compare(knowledge.practical, practical) == 0 &&
+                Double.compare(knowledge.theoretical, theoretical) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(practical, theoretical);
+    }
 }

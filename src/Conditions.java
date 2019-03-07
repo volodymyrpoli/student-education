@@ -14,7 +14,7 @@ public class Conditions {
 
     public static Condition<Student> inStudyYearsPeriod(int from, int to) {
         return student -> student.getDate().isAfter(LocalDate.of(from, Month.SEPTEMBER, 1).minusDays(1))
-                && student.getDate().isBefore(LocalDate.of(to, Month.JULY, 1));
+                && student.getDate().isBefore(LocalDate.of(to, Month.JULY, 31).plusDays(1));
     }
 
     public static Condition<Student> workDay() {
@@ -34,6 +34,14 @@ public class Conditions {
 
     public static Condition<Student> everyDay() {
         return student -> true;
+    }
+
+    public static Condition<Student> notOnDay(int dayOfMonth, Month month) {
+        return student -> {
+            boolean dayCheck = student.getDate().getDayOfMonth() == dayOfMonth;
+            boolean monthCheck = student.getDate().getMonth().equals(month);
+            return !(dayCheck && monthCheck);
+        };
     }
 
 }
