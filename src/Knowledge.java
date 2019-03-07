@@ -87,4 +87,13 @@ public class Knowledge {
     public int hashCode() {
         return Objects.hash(practical, theoretical);
     }
+
+    @Override
+    public String toString() {
+        return "Knowledge{" +
+                "practical=" + practical +
+                ", theoretical=" + theoretical +
+                ", educability=" + educability +
+                '}';
+    }
 }
