@@ -9,9 +9,15 @@ import java.util.List;
 
 public class Student {
 
+    private String name;
     private Knowledge knowledge;
     private LocalDate date;
     private List<Instrument> instruments = new ArrayList<>();
+
+    public Student(Knowledge knowledge, String name) {
+        this(knowledge);
+        this.name = name;
+    }
 
     public Student(Knowledge knowledge, LocalDate dateForStudent) {
         date = dateForStudent;
@@ -67,4 +73,7 @@ public class Student {
         return instruments.size();
     }
 
+    public String getName() {
+        return name;
+    }
 }
