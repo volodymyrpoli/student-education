@@ -1,3 +1,3 @@
-public enum  KnowledgeType {
+public enum KnowledgeType {
     PRACTICAL, THEORETICAL
 }

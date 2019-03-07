@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 
 public class Student {
+
     private Knowledge knowledge;
     private LocalDate date;
 
@@ -41,4 +42,5 @@ public class Student {
         date = date.plusDays(1);
         return date;
     }
+
 }

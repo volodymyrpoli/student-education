@@ -8,7 +8,7 @@ public class Activity {
     private List<Condition<Student>> conditions;
 
     @SafeVarargs
-    Activity(String name, int practical, int theoretical, Condition<Student> one, Condition<Student> ...conditions) {
+    Activity(String name, int practical, int theoretical, Condition<Student> one, Condition<Student>... conditions) {
         this.name = name;
         knowledge = new Knowledge(practical, theoretical);
         this.conditions = new ArrayList<>();
@@ -33,6 +33,5 @@ public class Activity {
     int getPractical() {
         return knowledge.getPractical();
     }
-
 
 }

@@ -15,4 +15,5 @@ public class FirstGoodTest {
     void zero() {
         MatcherAssert.assertThat(0, Matchers.is(0));
     }
+
 }

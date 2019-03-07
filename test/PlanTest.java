@@ -61,5 +61,4 @@ public class PlanTest {
         assertThat(student.getKnowledge().getPractical(), is(10));
     }
 
-
 }

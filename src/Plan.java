@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Plan {
+
     private List<Activity> activities = new ArrayList<>();
 
     void perform(Student student) {
@@ -19,4 +20,5 @@ public class Plan {
     List<Activity> getActivities() {
         return new ArrayList<>(activities);
     }
+
 }

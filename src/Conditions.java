@@ -5,7 +5,8 @@ import java.time.temporal.WeekFields;
 import java.util.Locale;
 
 public class Conditions {
-    private Conditions() {}
+    private Conditions() {
+    }
 
     public static Condition<Student> inPeriod(LocalDate from, LocalDate to) {
         return student -> student.getDate().isAfter(from) && student.getDate().isBefore(to);
@@ -34,4 +35,5 @@ public class Conditions {
     public static Condition<Student> everyDay() {
         return student -> true;
     }
+
 }

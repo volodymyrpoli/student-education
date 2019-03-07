@@ -23,4 +23,5 @@ public class ActivityWithRegistration extends Activity {
     public int getStudentCount() {
         return students.size();
     }
+
 }

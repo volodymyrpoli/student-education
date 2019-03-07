@@ -93,5 +93,4 @@ public class KnowledgeTest {
         assertThat(knowledge.getPractical(), is(5));
     }
 
-
 }

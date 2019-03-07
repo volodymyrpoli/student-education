@@ -184,4 +184,5 @@ public class ActivityTest {
         assertThat(student.getKnowledge().getTheoretical(), is(0));
         assertThat(student.getKnowledge().getPractical(), is(0));
     }
+
 }

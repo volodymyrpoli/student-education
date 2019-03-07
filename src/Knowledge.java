@@ -1,4 +1,5 @@
 public class Knowledge {
+
     public static final double EDUCABILITY_MAX_VALUE = 1.;
     public static final double EDUCABILITY_MIN_VALUE = 0.01;
 
@@ -32,11 +33,14 @@ public class Knowledge {
         switch (type) {
             case PRACTICAL: {
                 this.addPractical(value);
-            } break;
+            }
+            break;
             case THEORETICAL: {
                 this.addTheoretical(value);
-            } break;
-            default: throw new IllegalArgumentException("First argument must be one of KnowledgeType enum");
+            }
+            break;
+            default:
+                throw new IllegalArgumentException("First argument must be one of KnowledgeType enum");
         }
     }
 
@@ -55,13 +59,17 @@ public class Knowledge {
 
     int get(KnowledgeType type) {
         switch (type) {
-            case PRACTICAL: return getPractical();
-            case THEORETICAL: return getTheoretical();
-            default: throw new IllegalArgumentException("First argument must be one of KnowledgeType enum");
+            case PRACTICAL:
+                return getPractical();
+            case THEORETICAL:
+                return getTheoretical();
+            default:
+                throw new IllegalArgumentException("First argument must be one of KnowledgeType enum");
         }
     }
 
     public static Knowledge empty() {
         return new Knowledge(0, 0);
     }
+
 }

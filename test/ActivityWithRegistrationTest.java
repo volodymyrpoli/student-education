@@ -57,4 +57,5 @@ public class ActivityWithRegistrationTest {
         assertThat(student_0_0.getKnowledge().getPractical(), is(10));
         assertThat(student_0_0.getKnowledge().getTheoretical(), is(15));
     }
+
 }
