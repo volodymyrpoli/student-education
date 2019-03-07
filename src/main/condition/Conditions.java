@@ -53,4 +53,8 @@ public class Conditions {
         return student -> student.hasInstrument(instrument);
     }
 
+    public static Condition<Student> notOnMonth(Month month) {
+        return student -> ! student.getDate().getMonth().equals(month);
+    }
+
 }
