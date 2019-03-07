@@ -2,10 +2,6 @@ public class Knowledge {
     private int practical;
     private int theoretical;
 
-    Knowledge() {
-        this(0, 0);
-    }
-
     Knowledge(int practical, int theoretical) {
         this.practical = practical;
         this.theoretical = theoretical;
@@ -48,4 +44,7 @@ public class Knowledge {
         }
     }
 
+    public static Knowledge empty() {
+        return new Knowledge(0, 0);
+    }
 }

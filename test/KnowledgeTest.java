@@ -14,7 +14,7 @@ public class KnowledgeTest {
     void setUp() {
         knowledge_10_20 = new Knowledge(10, 20);
         knowledge_15_25 = new Knowledge(15, 25);
-        knowledge_0_0 = new Knowledge();
+        knowledge_0_0 = Knowledge.empty();
     }
 
     @Test

@@ -1,7 +1,9 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.Month;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -106,4 +108,80 @@ public class ActivityTest {
         assertThat(zeroKnowledgeStudent.getKnowledge().getTheoretical(), is(20));
     }
 
+    @Test
+    void activityCondition__whenActiveOnlyWorkDay__addKnowledge() {
+        Activity activity = new Activity("", 15, 20, Conditions.workDay());
+        Student student = new Student(Knowledge.empty(), LocalDate.of(2019, Month.MARCH, 7));
+
+        activity.perform(student);
+
+        assertThat(student.getKnowledge().getTheoretical(), is(20));
+        assertThat(student.getKnowledge().getPractical(), is(15));
+    }
+
+    @Test
+    void activityCondition__whenActiveOnlyWorkDayAndStudentHasSaturday__nothingChange() {
+        Activity activity = new Activity("", 15, 20, Conditions.workDay());
+        Student student = new Student(Knowledge.empty(), LocalDate.of(2019, Month.MARCH, 9));
+
+        activity.perform(student);
+
+        assertThat(student.getKnowledge().getTheoretical(), is(0));
+        assertThat(student.getKnowledge().getPractical(), is(0));
+    }
+
+    @Test
+    void activityCondition__whenActiveOnlyWorkDayAndStudentHasSunday__nothingChange() {
+        Activity activity = new Activity("", 15, 20, Conditions.workDay());
+        Student student = new Student(Knowledge.empty(), LocalDate.of(2019, Month.MARCH, 10));
+
+        activity.perform(student);
+
+        assertThat(student.getKnowledge().getTheoretical(), is(0));
+        assertThat(student.getKnowledge().getPractical(), is(0));
+    }
+
+    @Test
+    void oneDayOfMonth__whenStudentHasCorrectDate__addKnowledge() {
+        Activity activity = new Activity("", 15, 20, Conditions.oneDayOnMonth(3, DayOfWeek.THURSDAY.getValue()));
+        Student student = new Student(Knowledge.empty(), LocalDate.of(2019, Month.MARCH, 14));
+
+        activity.perform(student);
+
+        assertThat(student.getKnowledge().getTheoretical(), is(20));
+        assertThat(student.getKnowledge().getPractical(), is(15));
+    }
+
+    @Test
+    void oneDayOfMonth__whenStudentHasNotCorrectDate__nothingChange() {
+        Activity activity = new Activity("", 15, 20, Conditions.oneDayOnMonth(3, DayOfWeek.THURSDAY.getValue()));
+        Student student = new Student(Knowledge.empty(), LocalDate.of(2019, Month.MARCH, 15));
+
+        activity.perform(student);
+
+        assertThat(student.getKnowledge().getTheoretical(), is(0));
+        assertThat(student.getKnowledge().getPractical(), is(0));
+    }
+
+    @Test
+    void inStudyYearsPeriod__whenStudentHasCorrectDate__addKnowledge() {
+        Activity activity = new Activity("University", 1, 5, Conditions.inStudyYearsPeriod(2016, 2020));
+        Student student = new Student(Knowledge.empty(), LocalDate.of(2019, Month.MARCH, 15));
+
+        activity.perform(student);
+
+        assertThat(student.getKnowledge().getTheoretical(), is(5));
+        assertThat(student.getKnowledge().getPractical(), is(1));
+    }
+
+    @Test
+    void inStudyYearsPeriod__whenStudentHasNotCorrectDate__nothingChange() {
+        Activity activity = new Activity("University", 1, 5, Conditions.inStudyYearsPeriod(2016, 2020));
+        Student student = new Student(Knowledge.empty(), LocalDate.of(2021, Month.MARCH, 15));
+
+        activity.perform(student);
+
+        assertThat(student.getKnowledge().getTheoretical(), is(0));
+        assertThat(student.getKnowledge().getPractical(), is(0));
+    }
 }

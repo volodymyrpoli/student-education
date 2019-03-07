@@ -1,4 +1,6 @@
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.temporal.WeekFields;
 import java.util.Locale;
 
@@ -10,13 +12,13 @@ public class Conditions {
     }
 
     public static Condition<Student> inStudyYearsPeriod(int from, int to) {
-        return student -> student.getDate().isAfter(LocalDate.of(from, 9, 1))
-                && student.getDate().isBefore(LocalDate.of(to, 6, 1));
+        return student -> student.getDate().isAfter(LocalDate.of(from, Month.SEPTEMBER, 1))
+                && student.getDate().isBefore(LocalDate.of(to, Month.JULY, 1));
     }
 
-    public static Condition<Student> isWorkDay() {
-        return student -> student.getDate().getDayOfWeek().getValue() != 6
-                && student.getDate().getDayOfWeek().getValue() != 7;
+    public static Condition<Student> workDay() {
+        return student -> student.getDate().getDayOfWeek() != DayOfWeek.SATURDAY
+                && student.getDate().getDayOfWeek() != DayOfWeek.SUNDAY;
     }
 
     public static Condition<Student> oneDayOnMonth(int weekOfMonth, int dayOfWeek) {
