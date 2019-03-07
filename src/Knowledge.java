@@ -24,7 +24,7 @@ public class Knowledge {
     }
 
     void addPractical(int value) {
-        practical += value * educability;
+        practical += value;
     }
 
     void addTheoretical(int value) {
