@@ -1,3 +1,9 @@
+package main.activity;
+
+import main.condition.Condition;
+import main.Knowledge;
+import main.Student;
+
 import java.util.ArrayList;
 import java.util.List;
 

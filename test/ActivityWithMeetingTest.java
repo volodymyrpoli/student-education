@@ -1,3 +1,7 @@
+import main.activity.ActivityWithMeeting;
+import main.condition.Conditions;
+import main.Knowledge;
+import main.Student;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

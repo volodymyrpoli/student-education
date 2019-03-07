@@ -1,3 +1,7 @@
+import main.*;
+import main.activity.Activity;
+import main.condition.Conditions;
+import main.enums.Instrument;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

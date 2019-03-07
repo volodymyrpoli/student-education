@@ -1,3 +1,7 @@
+import main.*;
+import main.activity.Activity;
+import main.activity.ActivityBuilder;
+import main.condition.Conditions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

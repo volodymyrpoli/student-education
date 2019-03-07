@@ -1,3 +1,8 @@
+package main.condition;
+
+import main.enums.Instrument;
+import main.Student;
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;

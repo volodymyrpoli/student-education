@@ -1,3 +1,7 @@
+import main.*;
+import main.activity.Activities;
+import main.activity.Activity;
+import main.activity.ActivityWithRegistration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

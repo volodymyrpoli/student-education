@@ -1,3 +1,7 @@
+package main;
+
+import main.enums.KnowledgeType;
+
 import java.util.Objects;
 
 public class Knowledge {
@@ -9,7 +13,7 @@ public class Knowledge {
     private double theoretical;
     public final double educability;
 
-    Knowledge(int practical, int theoretical, final double educability) {
+    public Knowledge(int practical, int theoretical, final double educability) {
         this.practical = practical;
         this.theoretical = theoretical;
         if (educability >= EDUCABILITY_MIN_VALUE && educability <= EDUCABILITY_MAX_VALUE) {
@@ -19,19 +23,19 @@ public class Knowledge {
         }
     }
 
-    Knowledge(int practical, int theoretical) {
+    public Knowledge(int practical, int theoretical) {
         this(practical, theoretical, 1.0);
     }
 
-    void addPractical(int value) {
+    public void addPractical(int value) {
         practical += value;
     }
 
-    void addTheoretical(int value) {
+    public void addTheoretical(int value) {
         theoretical += value * educability;
     }
 
-    void add(KnowledgeType type, int value) {
+    public void add(KnowledgeType type, int value) {
         switch (type) {
             case PRACTICAL: {
                 this.addPractical(value);
@@ -42,31 +46,31 @@ public class Knowledge {
             }
             break;
             default:
-                throw new IllegalArgumentException("First argument must be one of KnowledgeType enum");
+                throw new IllegalArgumentException("First argument must be one of main.enums.KnowledgeType enum");
         }
     }
 
-    void add(Knowledge knowledge) {
+    public void add(Knowledge knowledge) {
         this.add(KnowledgeType.THEORETICAL, knowledge.getTheoretical());
         this.add(KnowledgeType.PRACTICAL, knowledge.getPractical());
     }
 
-    int getPractical() {
+    public int getPractical() {
         return (int) practical;
     }
 
-    int getTheoretical() {
+    public int getTheoretical() {
         return (int) theoretical;
     }
 
-    int get(KnowledgeType type) {
+    public int get(KnowledgeType type) {
         switch (type) {
             case PRACTICAL:
                 return getPractical();
             case THEORETICAL:
                 return getTheoretical();
             default:
-                throw new IllegalArgumentException("First argument must be one of KnowledgeType enum");
+                throw new IllegalArgumentException("First argument must be one of main.enums.KnowledgeType enum");
         }
     }
 
@@ -90,7 +94,7 @@ public class Knowledge {
 
     @Override
     public String toString() {
-        return "Knowledge{" +
+        return "main.Knowledge{" +
                 "practical=" + practical +
                 ", theoretical=" + theoretical +
                 ", educability=" + educability +

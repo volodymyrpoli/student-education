@@ -1,3 +1,5 @@
+import main.Knowledge;
+import main.enums.KnowledgeType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

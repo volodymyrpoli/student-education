@@ -1,3 +1,7 @@
+import main.enums.Instrument;
+import main.Knowledge;
+import main.enums.KnowledgeType;
+import main.Student;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

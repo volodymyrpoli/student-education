@@ -1,3 +1,8 @@
+package main;
+
+import main.enums.Instrument;
+import main.enums.KnowledgeType;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,24 +13,24 @@ public class Student {
     private LocalDate date;
     private List<Instrument> instruments = new ArrayList<>();
 
-    Student(Knowledge knowledge, LocalDate dateForStudent) {
+    public Student(Knowledge knowledge, LocalDate dateForStudent) {
         date = dateForStudent;
         this.knowledge = knowledge;
     }
 
-    Student(Knowledge knowledge) {
+    public Student(Knowledge knowledge) {
         this(knowledge, LocalDate.now());
     }
 
-    Student() {
+    public Student() {
         this(new Knowledge(0, 0));
     }
 
-    Knowledge getKnowledge() {
+    public Knowledge getKnowledge() {
         return knowledge;
     }
 
-    void perform(KnowledgeType knowledgeType, int value) {
+    public void perform(KnowledgeType knowledgeType, int value) {
         knowledge.add(knowledgeType, value);
     }
 
@@ -37,29 +42,28 @@ public class Student {
         }
     }
 
-    LocalDate getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    LocalDate nextDay() {
-        date = date.plusDays(1);
-        return date;
+    public LocalDate nextDay() {
+        return date = date.plusDays(1);
     }
 
-    Student addInstrument(Instrument instrument) {
+    public Student addInstrument(Instrument instrument) {
         instruments.add(instrument);
         return this;
     }
 
-    void removeInstrument(Instrument instrument) {
+    public void removeInstrument(Instrument instrument) {
         instruments.remove(instrument);
     }
 
-    boolean hasInstrument(Instrument instrument) {
+    public boolean hasInstrument(Instrument instrument) {
         return instruments.contains(instrument);
     }
 
-    int countInstruments() {
+    public int countInstruments() {
         return instruments.size();
     }
 

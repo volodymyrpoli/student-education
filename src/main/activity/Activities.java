@@ -1,3 +1,7 @@
+package main.activity;
+
+import main.condition.Conditions;
+
 import java.time.LocalDate;
 
 public class Activities {
