@@ -1,12 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.Month;
-
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.is;
 
 public class ActivityWithMeetingTest {
 
@@ -16,7 +12,7 @@ public class ActivityWithMeetingTest {
     }
 
     @Test
-    void perform__whenHasOneOtherStudent__addKnowledge() {
+    void perform__whenHasTwoOtherStudent__addKnowledge() {
         ActivityWithMeeting activity = new ActivityWithMeeting("Party", 0, 0, Conditions.everyDay());
         activity
                 .addStudent(new Student(new Knowledge(10, 10)))
@@ -27,4 +23,5 @@ public class ActivityWithMeetingTest {
 
         assertThat(student.getKnowledge(), is(new Knowledge(0, 5)));
     }
+
 }

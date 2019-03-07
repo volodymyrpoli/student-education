@@ -185,4 +185,26 @@ public class ActivityTest {
         assertThat(student.getKnowledge().getPractical(), is(0));
     }
 
+    @Test
+    void hasInstrument__whenStudentHasNotInstrument__nothingChange() {
+        Activity oop_workshop = new Activity("OOP workshop", 15, 10, Conditions.hasInstrument(Instrument.LAPTOP));
+        Student student = new Student(Knowledge.empty()).addInstrument(Instrument.PHONE);
+
+        oop_workshop.perform(student);
+
+        assertThat(student.getKnowledge(), is(Knowledge.empty()));
+    }
+
+    @Test
+    void hasInstrument__whenStudentHasInstrument__addKnowledge() {
+        Activity oop_workshop = new Activity("OOP workshop", 15, 10, Conditions.hasInstrument(Instrument.LAPTOP));
+        Student student = new Student(Knowledge.empty())
+                .addInstrument(Instrument.PHONE)
+                .addInstrument(Instrument.LAPTOP);
+
+        oop_workshop.perform(student);
+
+        assertThat(student.getKnowledge(), is(new Knowledge(15, 10)));
+    }
+
 }

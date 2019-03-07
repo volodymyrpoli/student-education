@@ -55,4 +55,26 @@ public class StudentTest {
         assertThat(lessIntelligentStudent.getKnowledge().getTheoretical(), is(12));
     }
 
+    @Test
+    void addInstrument__whenAddOneInstrument__oneInstrument() {
+        Student student = new Student(Knowledge.empty());
+
+        student.addInstrument(Instrument.LAPTOP);
+
+        assertThat(student.countInstruments(), is(1));
+    }
+
+    @Test
+    void addInstrument__whenAddThreeInstrumentsAndOneRemove__twoInstruments() {
+        Student student = new Student(Knowledge.empty());
+        student.addInstrument(Instrument.LAPTOP)
+                .addInstrument(Instrument.PHONE)
+                .addInstrument(Instrument.PHONE);
+
+        student.removeInstrument(Instrument.PHONE);
+
+        assertThat(student.countInstruments(), is(2));
+    }
+
+
 }

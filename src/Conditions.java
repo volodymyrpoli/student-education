@@ -44,4 +44,8 @@ public class Conditions {
         };
     }
 
+    public static Condition<Student> hasInstrument(Instrument instrument) {
+        return student -> student.hasInstrument(instrument);
+    }
+
 }
