@@ -75,5 +75,23 @@ public class KnowledgeTest {
         assertThat(knowledge_10_20.getTheoretical(), is(20 + 25));
     }
 
+    @Test
+    void educability_whenKnowledgeHasHalfEducability__addHalfOfKnowledge() {
+        Knowledge knowledge = new Knowledge(0, 0, .5);
+        knowledge.add(KnowledgeType.THEORETICAL, 20);
+
+        assertThat(knowledge.getTheoretical(), is(10));
+    }
+
+    @Test
+    void educability_whenConcatKnowledge__addHalfOfKnowledge() {
+        Knowledge knowledge = new Knowledge(0, 0, .5);
+
+        knowledge.add(new Knowledge(10, 10));
+
+        assertThat(knowledge.getTheoretical(), is(5));
+        assertThat(knowledge.getPractical(), is(5));
+    }
+
 
 }
